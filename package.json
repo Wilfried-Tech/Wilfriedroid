@@ -1,0 +1,26 @@
+{
+  "name": "wilfriedroid",
+  "version": "1.0.0",
+  "description": "I am trying to set up an virtual android phone",
+  "main": "src/index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo 'nothing'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wilfried-Tech/Wilfriedroid.git"
+  },
+  "keywords": [
+    "Wilfried-Tech",
+    "Wilfriedroid",
+    "Virtual",
+    "Phone"
+  ],
+  "author": "Wilfried-Tech",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wilfried-Tech/Wilfriedroid/issues"
+  },
+  "homepage": "https://github.com/Wilfried-Tech/Wilfriedroid#readme"
+}
