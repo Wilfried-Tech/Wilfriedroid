@@ -5,7 +5,9 @@
   "main": "src/index.js",
   "private": true,
   "scripts": {
-    "test": "echo 'nothing'"
+    "test": "echo 'nothing'",
+    "build": "webpack",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
