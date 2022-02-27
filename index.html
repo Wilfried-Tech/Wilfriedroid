@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="utf-8">
   <!-- Responsive Meta -->
@@ -16,7 +17,7 @@
   <meta name="description" content="Wilfried-Tech mets sur pieds la marque d'Android wilfried-Tech , c'est un téléphone virtuel !" />
   <meta name="keywords" content="Wilfried-Tech, Android , Android virtuel, téléphone virtuel" />
   <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
   <link rel="icon" type="icon" href="assets/images/favicon/favicon.png">
   <!-- JavaScript -->
   <script src="libs/eruda.min.js"></script>
@@ -34,7 +35,73 @@
 
 <body>
   <div class="container">
-
+    <!-- phone tools start -->
+    <div id="phone-tools">
+      <div class="phone-tool phone-tool-fullscreen"><span><i class="mdi mdi-fullscreen"></i></span></div>
+      <div class="phone-tool"><input class="phone-tool-scale" type="range" value="0.82" min="0.5" max="1.5" step="0.01" /></div>
+      <div class="phone-tool phone-tool-volume-up"><span><i class="fa fa-volume-up"></i></span></div>
+      <div class="phone-tool phone-tool-volume-down"><span><i class="fa fa-volume-down"></i></span></div>
+      <div class="phone-tool phone-tool-power-off"><span><i class="fa fa-power-off"></i></span></div>
+      <div class="phone-tool phone-tool-user-guide"><span><i class="fa fa-book"></i></span></div>
+      <div class="phone-tool phone-tool-exit"><span><i class="mdi mdi-exit-run"></i></span></div>
+    </div>
+    <!-- phone tools end-->
+    <!-- phone layout start -->
+    <div id="phone">
+      <!-- phone head start -->
+      <div id="phone-head">
+        <!-- phone speaker start -->
+        <div id="phone-front-speaker"></div>
+        <!-- phone speaker end -->
+        <!-- front-camera -->
+        <div id="front-camera">
+          <div class="inner-front-camera"></div>
+        </div>
+        <!-- front-camera end -->
+      </div>
+      <!-- phone head end -->
+      <!-- screen start -->
+      <div id="screen">
+        <!-- off screen start -->
+        <div id="off-screen"></div>
+        <!-- off screen end-->
+        <!-- status bar start -->
+        <div id="status-bar">
+          <div class="status-bar-item status-bar-static">
+            <span class="status-bar-time">00:00</span>
+          </div>
+          <div class="status-bar-item status-bar-static">
+            <span class="status-bar-battery">
+              <span class="status-bar-battery-value"></span>
+              <span class="status-bar-battery-charge"></span>
+            </span>
+          </div>
+          <div class="status-bar-item status-bar-static">
+            <span class="status-bar-battery-level">100%</span>
+          </div>
+          <div class="status-bar-item status-bar-static">
+            <span class="status-bar-sim-signal">
+              <sup><span class="status-bar-signal-type">H</span></sup>
+              <span class="fa fa-signal"></span>
+            </span>
+          </div>
+          <div class="status-bar-item status-bar-static">
+            <span class="status-bar-mbps">0kb/s</span>
+          </div>
+        </div>
+        <!-- status bar end -->
+        
+      </div>
+      <!-- screen end -->
+      <!-- phone bottom nav start -->
+      <div id="phone-nav-btn">
+        <div class="nav-btn"><span><i class="far fa-square"></i></span></div>
+        <div class="nav-btn"><span><i class="far fa-circle"></i></span></div>
+        <div class="nav-btn"><span><i class="fab fa-ic-back"></i></span></div>
+      </div>
+      <!-- phone bottom nav end -->
+    </div>
+    <!-- phone layout end-->
   </div>
   <!-- JavaScript -->
   <script type="text/javascript" src="js/main.js"></script>
