@@ -13,8 +13,8 @@ const config = {
   },
   plugins: [new HtmlWebpackPlugin({
       title: 'Development',
-      filename: 'index.html',
-      template: './index.html'
+      filename: '../index.html',
+      template: './template/index.html'
     }),
   ],
   module: {
