@@ -113,7 +113,7 @@ export class PhoneNetworkEvent extends PhoneEvent {
         }
       }
       element.dispatchEvent(create(info))
-
     }
   }
 }
+

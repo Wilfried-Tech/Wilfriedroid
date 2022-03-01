@@ -26,3 +26,38 @@ export function merge(a, ...b) {
   }
   return a;
 }
+
+/**
+ * select multiples élément in the DOM
+ * @param {String} selector
+ * @returns {HTMLElement}
+ */
+export function getView(selector) {
+  var elt = document.querySelector(selector);
+  if (!elt) return null
+  elt.css = function(prop, value) {
+    elt.style.setProperty(prop, value);
+    return elt
+  }
+  return elt
+}
+
+/**
+ * select an élément in the DOM
+ * @param {String} selector
+ * @returns {NodeListOf<HTMLElement>}
+ */
+export function getViewGroup(selector) {
+  var elts = document.querySelectorAll(selector);
+  if (elts.length == 0 || !elts) return null
+  elts.css = function(prop, value) {
+    elts.forEach(elt => elt.css(prop, value))
+  }
+  elts.forEach(elt => {
+    elt.css = function(prop, value) {
+      elt.style.setProperty(prop, value);
+      return elt
+    }
+  })
+  return elts
+}

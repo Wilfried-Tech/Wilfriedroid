@@ -201,9 +201,14 @@ body {
   margin-left: 4px;
 }
 
-.status-bar-item>span {
+.status-bar-item>span:not(.status-bar-battery):not(.status-bar-sim-signal) {
   font-size: 14px;
   font-weight: bold;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .status-bar-item .material-icons {
@@ -222,14 +227,14 @@ body {
   margin-left: 2px;
 }
 
-.status-bar-sim-signal{
-  padding-bottom: 20px;
+.status-bar-sim-signal svg{
+  margin-bottom: 4px;
 }
 
 .status-bar-signal-type {
   font-size: 6px;
   position: relative;
-  top: -1px;
+  top: -3px;
   left: 7px;
   text-transform: uppercase;
 }
@@ -274,10 +279,11 @@ body {
   display: block;
 }
 
-.status-bar-online {
-  transform: rotate(90deg);
-  margin-right: -10px;
+.status-bar-network {
+  margin-right: -9px;
+  padding-bottom: 2px;
 }
+
 
 span.status-bar-mbps {
   float: left;
