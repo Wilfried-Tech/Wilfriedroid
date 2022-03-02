@@ -36,6 +36,7 @@ export function getView(selector) {
   var elt = document.querySelector(selector);
   if (!elt) return null
   elt.css = function(prop, value) {
+    if (!value) return elt.style.getPropertyValue(prop);
     elt.style.setProperty(prop, value);
     return elt
   }
@@ -50,14 +51,52 @@ export function getView(selector) {
 export function getViewGroup(selector) {
   var elts = document.querySelectorAll(selector);
   if (elts.length == 0 || !elts) return null
-  elts.css = function(prop, value) {
-    elts.forEach(elt => elt.css(prop, value))
-  }
   elts.forEach(elt => {
     elt.css = function(prop, value) {
+      if (!value) return elt.style.getPropertyValue(prop);
       elt.style.setProperty(prop, value);
       return elt
     }
   })
+  elts.css = function(prop, value) {
+    var values = [];
+    elts.forEach(elt => values.push(elt.css(prop)));
+    return values;
+    elts.forEach(elt => elt.css(prop, value));
+    return elts
+  }
   return elts
+}
+
+/**
+ * create an element
+ * @param {String} tagName
+ * @param {Object} attr
+ * @param {Object} data
+ * @param {Array<HTMLElement>} children
+ * @return {HTMLElement}
+ */
+export function createView(tagName, attr, data, children) {
+  var elt = document.createElement(tagName);
+  if (attr) {
+    for (var prop in attr) {
+      if (prop != 'text') {
+        elt.setAttribute(prop, attr[prop]);
+      }
+    }
+    if (attr.text) {
+      elt.innerHTML = attr.text;
+    }
+  }
+  if (data) {
+    for (var prop in data) {
+      elt[prop] = data[prop];
+    }
+  }
+  if (children) {
+    children.forEach(child => {
+      elt.appendChild(child);
+    });
+  }
+  return elt;
 }
