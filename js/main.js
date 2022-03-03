@@ -29,10 +29,11 @@ const Views = {
   }
 };
 
-console.log(Views);
-
 var android = new System.Android(Views, null);
 
+console.log(android);
+
+new System.Components.OffScreen(android);
 
 /*$ = (e) => document.querySelector(e)
 

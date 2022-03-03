@@ -4,7 +4,7 @@ export default class Interface extends Components {
   constructor(context, name, view, param) {
     super(context, name, view);
     this.showStatusBar = param.showStatusBar;
-    this.View.classList.add('interface');
+    this.View.node.classList.add('interface');
     this.View.context = this;
     super.initParams();
   }

@@ -39,5 +39,7 @@ export default class Android {
     __config.power = state;
   }
   
-  
+  setContentView(view){
+    this.Views.screen.node.appendChild(view.node)
+  }
 }

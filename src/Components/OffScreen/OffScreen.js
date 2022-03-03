@@ -1,10 +1,13 @@
 import Interface from '../../Interface.js'
+import View from '../../View.js'
 import content from './layout.html'
 
 export default class OffScreen extends Interface {
   constructor(context) {
     super(context, 'OffScreen', content, { showStatusBar: false });
-
+    this.View = context.Views.screenOff;
+    this.View.html('<input />').css('color','#fff');
+    alert(this.View.node.outerHTML);
   }
 
   boot() {
@@ -28,3 +31,4 @@ export default class OffScreen extends Interface {
     }
   }
 }
+
