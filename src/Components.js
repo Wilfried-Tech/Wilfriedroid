@@ -1,4 +1,4 @@
-import * as Utils from './Utils'
+import View from './View.js'
 
 class Components {
   constructor(context, name, view) {
@@ -6,7 +6,7 @@ class Components {
     this.context = context;
     this.showStatusBar = true
     this.activities = [];
-    this.View = Utils.createView('div', {
+    this.View = View.createView('div', {
       id: this.name,
       text: view
     });

@@ -1,5 +1,7 @@
 /**           UTILS                **/
 
+import View from './View.js'
+
 /**
  * give the type of an variable
  * @param {*} arg
@@ -28,75 +30,24 @@ export function merge(a, ...b) {
 }
 
 /**
- * select multiples élément in the DOM
+ * select an élément in the DOM
  * @param {String} selector
- * @returns {HTMLElement}
+ * @returns {View}
  */
 export function getView(selector) {
   var elt = document.querySelector(selector);
   if (!elt) return null
-  elt.css = function(prop, value) {
-    if (!value) return elt.style.getPropertyValue(prop);
-    elt.style.setProperty(prop, value);
-    return elt
-  }
-  return elt
+  return new View(elt);
 }
 
 /**
- * select an élément in the DOM
+ * select multiple élément in the DOM
  * @param {String} selector
- * @returns {NodeListOf<HTMLElement>}
+ * @returns {Array<View>}
  */
 export function getViewGroup(selector) {
   var elts = document.querySelectorAll(selector);
   if (elts.length == 0 || !elts) return null
-  elts.forEach(elt => {
-    elt.css = function(prop, value) {
-      if (!value) return elt.style.getPropertyValue(prop);
-      elt.style.setProperty(prop, value);
-      return elt
-    }
-  })
-  elts.css = function(prop, value) {
-    var values = [];
-    elts.forEach(elt => values.push(elt.css(prop)));
-    return values;
-    elts.forEach(elt => elt.css(prop, value));
-    return elts
-  }
-  return elts
-}
+  return Array.prototype.map.call(elts, elt => new View(elt));
 
-/**
- * create an element
- * @param {String} tagName
- * @param {Object} attr
- * @param {Object} data
- * @param {Array<HTMLElement>} children
- * @return {HTMLElement}
- */
-export function createView(tagName, attr, data, children) {
-  var elt = document.createElement(tagName);
-  if (attr) {
-    for (var prop in attr) {
-      if (prop != 'text') {
-        elt.setAttribute(prop, attr[prop]);
-      }
-    }
-    if (attr.text) {
-      elt.innerHTML = attr.text;
-    }
-  }
-  if (data) {
-    for (var prop in data) {
-      elt[prop] = data[prop];
-    }
-  }
-  if (children) {
-    children.forEach(child => {
-      elt.appendChild(child);
-    });
-  }
-  return elt;
 }
