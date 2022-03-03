@@ -15,25 +15,11 @@ class Components {
   }
 
   getView(selector, _all = false) {
-    var elts = this.View.querySelectorAll(selector);
-    if (elts.length) {
-      elts.forEach(elt => {
-        elt.css = function(prop, value) {
-          if (!value) return elt.style.getPropertyValue(prop);
-          elt.style.setProperty(prop, value);
-          return elt;
-        }
-      })
-      elts.css = function(prop, value) {
-        if (!value) {
-          var values = [];
-          elts.forEach(elt => values.push(elt.css(prop)))
-          return values;
-        }
-        elts.forEach(elt => elt.css(prop, value))
-      }
+    var elts = this.View.node.querySelectorAll(selector);
+    if (elts.length != 0) {
+      if (!_all) return new View(elts[0]);
+      return Array.prototype.map.call(elts, elt => new View(elt));
     }
-    return (_all) ? elts : elts[0];
   }
 
   onBack() {}
