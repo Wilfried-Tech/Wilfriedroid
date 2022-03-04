@@ -38,8 +38,9 @@ export default class Android {
     this.Views.Tools.power.css('color', (state == 'on' ? 'lime' : (state == 'off' ? 'red' : (state == 'sleep' ? 'orange' : ''))));
     __config.power = state;
   }
-  
-  setContentView(view){
-    this.Views.screen.node.appendChild(view.node)
+
+  setContentView(view) {
+    //this.Views.screen.node.appendChild(view.node);
+    //alert(view.node.outerHTML)
   }
 }

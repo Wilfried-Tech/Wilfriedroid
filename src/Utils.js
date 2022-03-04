@@ -36,8 +36,7 @@ export function merge(a, ...b) {
  */
 export function getView(selector) {
   var elt = document.querySelector(selector);
-  if (!elt) return null
-  return new View(elt);
+  return (!elt) ? null : new View(elt);
 }
 
 /**

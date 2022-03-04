@@ -22,7 +22,7 @@ const config = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
-      },
+      }/*,
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -32,7 +32,7 @@ const config = {
             presets: ['@babel/preset-env']
           }
         }
-      }
+      }*/
     ]
   }
 };

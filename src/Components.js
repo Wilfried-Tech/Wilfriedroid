@@ -6,10 +6,14 @@ export default class Components {
     this.context = context;
     this.showStatusBar = true
     this.activities = [];
-    this.View = View.createView('div', {
-      id: this.name,
-      text: view
-    });
+    if (view instanceof View) {
+      this.View = view;
+    } else {
+      this.View = View.createView('div', {
+        id: this.name,
+        text: view
+      });
+    }
 
     this.context.setContentView(this.View);
   }

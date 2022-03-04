@@ -4,9 +4,8 @@ import content from './layout.html'
 
 export default class OffScreen extends Interface {
   constructor(context) {
-    super(context, 'OffScreen', content, { showStatusBar: false });
-    this.View = context.Views.screenOff;
-    this.View.html('<input />').css('color','#fff');
+    super(context, 'OffScreen', context.Views.screenOff, { showStatusBar: false });
+    this.View.html('<input />').css('color', '#fff');
     alert(this.View.node.outerHTML);
   }
 
@@ -22,7 +21,7 @@ export default class OffScreen extends Interface {
         //});
         setTimeout(() => {
           //_this.displayInterface('lockscreen').then(() => {
-            _this.context.power = 'on';
+          _this.context.power = 'on';
           //  Message.listenChange();
           //})
         }, 11750);
@@ -31,4 +30,3 @@ export default class OffScreen extends Interface {
     }
   }
 }
-
