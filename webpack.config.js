@@ -14,7 +14,8 @@ const config = {
   plugins: [new HtmlWebpackPlugin({
       title: 'Development',
       filename: '../index.html',
-      template: './template/index.html'
+      template: './template/index.html',
+      scriptLoading: 'blocking'
     }),
   ],
   module: {
@@ -22,6 +23,11 @@ const config = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.html$/,
+        use: 'html-loader',
+        exclude: [/template/]
       }/*,
       {
         test: /\.js$/,

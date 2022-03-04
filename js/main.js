@@ -31,9 +31,13 @@ const Views = {
 
 var android = new System.Android(Views, null);
 
-console.log(android);
+var OffScreen = new System.Components.OffScreen(android);
 
-//new System.Components.OffScreen(android);
+new System.Events.PhoneLongClickEvent().registerElement(Views.Tools.power.node);
+Views.Tools.power.on('phone-longclick', () => {
+  OffScreen.boot();
+})
+
 
 /*$ = (e) => document.querySelector(e)
 

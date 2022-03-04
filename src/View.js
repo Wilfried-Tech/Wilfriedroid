@@ -1,5 +1,3 @@
-var __node = null;
-
 /**
  * @class
  */
@@ -9,7 +7,7 @@ export default class View {
    */
   constructor(node) {
     if (node instanceof HTMLElement) {
-      __node = node;
+      this.__node = node;
     } else {
       return null;
     }
@@ -19,7 +17,7 @@ export default class View {
    * @returns {HTMLElement}
    */
   get node() {
-    return __node;
+    return this.__node;
   }
 
   /**
@@ -71,7 +69,16 @@ export default class View {
     this.node.innerText = text;
     return this;
   }
-
+  
+  /**
+   * add an Event Listenner on element
+   * @param {String} ev
+   * @param {Function} callback
+   */
+   on(ev,callback){
+     this.node.addEventListener(ev,callback);
+   }
+  
   /**
    * create an element
    * @param {String} tagName
