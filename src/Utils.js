@@ -23,7 +23,7 @@ export function merge(a, ...b) {
   if (!a || typeOf(a) !== 'object' || b.length == 0) return a;
   for (var i = 0; i < b.length; i++) {
     Object.keys(b[i]).forEach(key => {
-      a[key] == b[i][key];
+      a[key] = b[i][key];
     })
   }
   return a;
