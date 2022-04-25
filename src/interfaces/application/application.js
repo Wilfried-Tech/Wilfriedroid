@@ -1,3 +1,5 @@
+import { Components } from '../component'
+
 class Application extends Components {
   constructor(appName) {
     super(appName);
@@ -108,11 +110,3 @@ class Application extends Components {
     }
   }
 }
-
-
-
-AndroidUtils.Application = Application;
-
-
-/*
- */

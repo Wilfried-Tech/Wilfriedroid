@@ -1,6 +1,6 @@
-import Components from './Components.js'
+import {Components} from '../component'
 
-export default class Interface extends Components {
+export class Interface extends Components {
   constructor(context, name, view, param) {
     super(context, name, view);
     this.showStatusBar = param.showStatusBar;
@@ -19,5 +19,3 @@ export default class Interface extends Components {
   }*/
 
 }
-
-//AndroidUtils.Interface = Interface;

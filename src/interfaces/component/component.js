@@ -1,6 +1,6 @@
-import View from './View.js'
+import {View} from '@src/view'
 
-export default class Components {
+export class Components {
   constructor(context, name, view) {
     this.name = name;
     this.context = context;
@@ -46,5 +46,4 @@ export default class Components {
   }
 
   initParams() {}
-
 }

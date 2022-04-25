@@ -4,11 +4,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const config = {
   mode: 'development',
-  entry: './src/index.js',
-  devtool: 'inline-source-map',
+  entry: {
+    Wilfriedroid: './src/index.js'
+  },
+  devtool: 'source-map',
   output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: 'system-android.js',
+    path: path.resolve(__dirname, '../build'),
+    filename: '[name].js',
+    library: 'System',
+    libraryTarget: 'window',
     clean: true
   },
   plugins: [new HtmlWebpackPlugin({
@@ -28,7 +32,7 @@ const config = {
         test: /\.html$/,
         use: 'html-loader',
         exclude: [/template/]
-      }/*,
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -38,8 +42,14 @@ const config = {
             presets: ['@babel/preset-env']
           }
         }
-      }*/
+      }
     ]
+  },
+  resolve: {
+    extensions: ['', '.js'],
+    alias: {
+      "@src": path.resolve(__dirname, "../src/")
+    }
   }
 };
 

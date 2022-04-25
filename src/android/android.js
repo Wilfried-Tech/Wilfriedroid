@@ -1,6 +1,4 @@
-/**
- * 
- */
+import { singleton } from '@src/decorators'
 
 const __config = {
   password: '1234',
@@ -8,7 +6,7 @@ const __config = {
   power: 'off'
 }
 
-export default class Android {
+class Android {
   constructor(views, lastConfig = {}) {
     this.Views = views;
   }
@@ -44,3 +42,7 @@ export default class Android {
     //alert(view.node.outerHTML)
   }
 }
+
+Android = singleton(Android)
+
+export { Android }

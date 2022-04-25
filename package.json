@@ -6,8 +6,9 @@
   "private": true,
   "scripts": {
     "test": "echo 'nothing'",
-    "build": "webpack",
-    "watch": "webpack --watch"
+    "build": "webpack --config @tools/webpack.config.js",
+    "watch": "webpack --watch --config @tools/webpack.config.js",
+    "lint": "eslint  --config @tools/eslintrc.js"
   },
   "repository": {
     "type": "git",

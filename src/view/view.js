@@ -1,7 +1,7 @@
 /**
  * @class
  */
-export default class View {
+export class View {
   /**
    * @param {HTMLElement} node
    */
