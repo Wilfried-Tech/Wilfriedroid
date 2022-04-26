@@ -1,3 +1,5 @@
+import { registerElementForEvent } from '@src/events/phone.js'
+
 /**
  * @class
  */
@@ -69,16 +71,17 @@ export class View {
     this.node.innerText = text;
     return this;
   }
-  
+
   /**
    * add an Event Listenner on element
    * @param {String} ev
    * @param {Function} callback
    */
-   on(ev,callback){
-     this.node.addEventListener(ev,callback);
-   }
-  
+  on(ev, callback) {
+    registerElementForEvent(ev,this.node);
+    this.node.addEventListener(ev, callback);
+  }
+
   /**
    * create an element
    * @param {String} tagName

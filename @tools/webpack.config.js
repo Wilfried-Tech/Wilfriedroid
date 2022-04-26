@@ -48,7 +48,9 @@ const config = {
   resolve: {
     extensions: ['', '.js'],
     alias: {
-      "@src": path.resolve(__dirname, "../src/")
+      "@src": path.resolve(__dirname, "../src/"),
+      "@app": path.resolve(__dirname, "../src/components")
+      "@interface": path.resolve(__dirname, "../src/interfaces")
     }
   }
 };

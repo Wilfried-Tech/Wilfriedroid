@@ -1,4 +1,4 @@
-import { PhoneEvent } from './phone.js'
+import { PhoneEvent, registerEvent } from './phone.js'
 
 export class PhoneLongClickEvent extends PhoneEvent {
   constructor() {
@@ -6,6 +6,7 @@ export class PhoneLongClickEvent extends PhoneEvent {
   }
 
   registerElement(element) {
+    super.registerElement(element);
     var start = 0,
       end = 0,
       diff = 0,
@@ -41,3 +42,5 @@ export class PhoneLongClickEvent extends PhoneEvent {
     element.addEventListener('pointerup', handler);
   }
 }
+
+registerEvent('phone-longclick', PhoneLongClickEvent)

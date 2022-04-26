@@ -33,7 +33,6 @@ var android = new System.Android(Views, null);
 
 var OffScreen = new System.Components.OffScreen(android);
 
-new System.Events.PhoneLongClickEvent().registerElement(Views.Tools.power.node);
 Views.Tools.power.on('phone-longclick', () => {
   OffScreen.boot();
 })

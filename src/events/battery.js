@@ -1,4 +1,4 @@
-import { PhoneEvent } from './phone.js'
+import { PhoneEvent,registerEvent } from './phone.js'
 
 export class PhoneBatteryEvent extends PhoneEvent {
   constructor() {
@@ -34,3 +34,5 @@ export class PhoneBatteryEvent extends PhoneEvent {
     return element;
   }
 }
+
+registerEvent('phone-battery',PhoneBatteryEvent);

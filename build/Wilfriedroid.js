@@ -91,6 +91,120 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/components/index.js":
+/*!*********************************!*\
+  !*** ./src/components/index.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "OffScreen": () => (/* reexport safe */ _offscreen__WEBPACK_IMPORTED_MODULE_0__.OffScreen)
+/* harmony export */ });
+/* harmony import */ var _offscreen__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./offscreen */ "./src/components/offscreen/index.js");
+
+
+/***/ }),
+
+/***/ "./src/components/offscreen/index.js":
+/*!*******************************************!*\
+  !*** ./src/components/offscreen/index.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "OffScreen": () => (/* reexport safe */ _offscreen_js__WEBPACK_IMPORTED_MODULE_0__.OffScreen)
+/* harmony export */ });
+/* harmony import */ var _offscreen_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./offscreen.js */ "./src/components/offscreen/offscreen.js");
+
+
+/***/ }),
+
+/***/ "./src/components/offscreen/offscreen.js":
+/*!***********************************************!*\
+  !*** ./src/components/offscreen/offscreen.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "OffScreen": () => (/* binding */ OffScreen)
+/* harmony export */ });
+/* harmony import */ var _src_interfaces__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/interfaces */ "./src/interfaces/index.js");
+/* harmony import */ var _src_view__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/view */ "./src/view/index.js");
+/* harmony import */ var _layout_html__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./layout.html */ "./src/components/offscreen/layout.html");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+console.log(_layout_html__WEBPACK_IMPORTED_MODULE_2__["default"]);
+var OffScreen = /*#__PURE__*/function (_Interface) {
+  _inherits(OffScreen, _Interface);
+
+  var _super = _createSuper(OffScreen);
+
+  function OffScreen(context) {
+    _classCallCheck(this, OffScreen);
+
+    return _super.call(this, context, 'OffScreen', context.Views.screenOff, {
+      showStatusBar: false
+    });
+  }
+
+  _createClass(OffScreen, [{
+    key: "boot",
+    value: function boot() {
+      var _this2 = this;
+
+      if (this.context.power == 'off') {
+        this.View.css('background', 'var(--window-boot-logo)').css('display', 'block');
+
+        var _this = this;
+
+        setTimeout(function () {
+          _this2.View.css('background', 'var(--window-booting)'); // _this.displayInterface('window').then(() => {
+          //phone.screen.off.css('display', 'block');
+          //});
+
+
+          setTimeout(function () {
+            //_this.displayInterface('lockscreen').then(() => {
+            _this.context.power = 'on'; //  Message.listenChange();
+            //})
+          }, 11750);
+        }, 1500);
+        this.context.power = 'booting';
+      }
+    }
+  }]);
+
+  return OffScreen;
+}(_src_interfaces__WEBPACK_IMPORTED_MODULE_0__.Interface);
+
+/***/ }),
+
 /***/ "./src/decorators/index.js":
 /*!*********************************!*\
   !*** ./src/decorators/index.js ***!
@@ -225,6 +339,7 @@ var PhoneBatteryEvent = /*#__PURE__*/function (_PhoneEvent) {
 
   return PhoneBatteryEvent;
 }(_phone_js__WEBPACK_IMPORTED_MODULE_0__.PhoneEvent);
+(0,_phone_js__WEBPACK_IMPORTED_MODULE_0__.registerEvent)('phone-battery', PhoneBatteryEvent);
 
 /***/ }),
 
@@ -271,6 +386,10 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
+function _get() { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(arguments.length < 3 ? target : receiver); } return desc.value; }; } return _get.apply(this, arguments); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
@@ -302,6 +421,8 @@ var PhoneLongClickEvent = /*#__PURE__*/function (_PhoneEvent) {
   _createClass(PhoneLongClickEvent, [{
     key: "registerElement",
     value: function registerElement(element) {
+      _get(_getPrototypeOf(PhoneLongClickEvent.prototype), "registerElement", this).call(this, element);
+
       var start = 0,
           end = 0,
           diff = 0,
@@ -342,6 +463,7 @@ var PhoneLongClickEvent = /*#__PURE__*/function (_PhoneEvent) {
 
   return PhoneLongClickEvent;
 }(_phone_js__WEBPACK_IMPORTED_MODULE_0__.PhoneEvent);
+(0,_phone_js__WEBPACK_IMPORTED_MODULE_0__.registerEvent)('phone-longclick', PhoneLongClickEvent);
 
 /***/ }),
 
@@ -436,6 +558,7 @@ var PhoneNetworkEvent = /*#__PURE__*/function (_PhoneEvent) {
 
   return PhoneNetworkEvent;
 }(_phone_js__WEBPACK_IMPORTED_MODULE_0__.PhoneEvent);
+(0,_phone_js__WEBPACK_IMPORTED_MODULE_0__.registerEvent)('phone-network', PhoneNetworkEvent);
 
 /***/ }),
 
@@ -447,8 +570,11 @@ var PhoneNetworkEvent = /*#__PURE__*/function (_PhoneEvent) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "PhoneEvent": () => (/* binding */ PhoneEvent)
+/* harmony export */   "PhoneEvent": () => (/* binding */ PhoneEvent),
+/* harmony export */   "registerEvent": () => (/* binding */ registerEvent),
+/* harmony export */   "registerElementForEvent": () => (/* binding */ registerElementForEvent)
 /* harmony export */ });
+/* harmony import */ var _src_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/utils */ "./src/utils/index.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -477,11 +603,13 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+
 var defaultInitDict = {
   composed: false,
   bubbles: false,
   cancelable: true
 };
+var registeredEvent = {};
 var PhoneEvent = /*#__PURE__*/function (_Event) {
   _inherits(PhoneEvent, _Event);
 
@@ -490,7 +618,7 @@ var PhoneEvent = /*#__PURE__*/function (_Event) {
   function PhoneEvent(name, eventInitDic) {
     _classCallCheck(this, PhoneEvent);
 
-    return _super.call(this, name, Utils.merge(defaultInitDict, eventInitDic));
+    return _super.call(this, name, (0,_src_utils__WEBPACK_IMPORTED_MODULE_0__.merge)(defaultInitDict, eventInitDic));
   }
 
   _createClass(PhoneEvent, [{
@@ -500,6 +628,16 @@ var PhoneEvent = /*#__PURE__*/function (_Event) {
 
   return PhoneEvent;
 }( /*#__PURE__*/_wrapNativeSuper(Event));
+function registerEvent(name, Class) {
+  if (!(name in registeredEvent)) {
+    registeredEvent[name] = Class;
+  }
+}
+function registerElementForEvent(ev, element) {
+  if (ev.toLowerCase() in registeredEvent) {
+    new registeredEvent[ev.toLowerCase()]().registerElement(element);
+  }
+}
 
 /***/ }),
 
@@ -583,6 +721,7 @@ var PhoneTimeEvent = /*#__PURE__*/function (_PhoneEvent) {
 
   return PhoneTimeEvent;
 }(_phone_js__WEBPACK_IMPORTED_MODULE_0__.PhoneEvent);
+(0,_phone_js__WEBPACK_IMPORTED_MODULE_0__.registerEvent)('phone-time', PhoneTimeEvent);
 
 /***/ }),
 
@@ -1135,15 +1274,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "View": () => (/* binding */ View)
 /* harmony export */ });
+/* harmony import */ var _src_events_phone_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/events/phone.js */ "./src/events/phone.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
+
 /**
  * @class
  */
+
 var View = /*#__PURE__*/function () {
   /**
    * @param {HTMLElement} node
@@ -1236,6 +1378,7 @@ var View = /*#__PURE__*/function () {
   }, {
     key: "on",
     value: function on(ev, callback) {
+      (0,_src_events_phone_js__WEBPACK_IMPORTED_MODULE_0__.registerElementForEvent)(ev, this.node);
       this.node.addEventListener(ev, callback);
     }
     /**
@@ -1282,6 +1425,23 @@ var View = /*#__PURE__*/function () {
 
   return View;
 }();
+
+/***/ }),
+
+/***/ "./src/components/offscreen/layout.html":
+/*!**********************************************!*\
+  !*** ./src/components/offscreen/layout.html ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// Module
+var code = "<input type=\"text\">\n";
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (code);
 
 /***/ })
 
@@ -1353,13 +1513,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "getViewGroup": () => (/* reexport safe */ _utils__WEBPACK_IMPORTED_MODULE_0__.getViewGroup),
 /* harmony export */   "Android": () => (/* reexport safe */ _android__WEBPACK_IMPORTED_MODULE_1__.Android),
 /* harmony export */   "Events": () => (/* reexport module object */ _events__WEBPACK_IMPORTED_MODULE_2__),
-/* harmony export */   "Components": () => (/* reexport safe */ _interfaces__WEBPACK_IMPORTED_MODULE_3__.Components),
-/* harmony export */   "Interface": () => (/* reexport safe */ _interfaces__WEBPACK_IMPORTED_MODULE_3__.Interface)
+/* harmony export */   "Interface": () => (/* reexport safe */ _interfaces__WEBPACK_IMPORTED_MODULE_3__.Interface),
+/* harmony export */   "Components": () => (/* reexport module object */ _components__WEBPACK_IMPORTED_MODULE_4__)
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./src/utils/index.js");
 /* harmony import */ var _android__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./android */ "./src/android/index.js");
 /* harmony import */ var _events__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./events */ "./src/events/index.js");
 /* harmony import */ var _interfaces__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./interfaces */ "./src/interfaces/index.js");
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components */ "./src/components/index.js");
+
+
 
 
 

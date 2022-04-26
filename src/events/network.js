@@ -1,4 +1,4 @@
-import { PhoneEvent } from './phone.js'
+import { PhoneEvent,registerEvent } from './phone.js'
 
 export class PhoneNetworkEvent extends PhoneEvent {
   constructor() {
@@ -37,3 +37,5 @@ export class PhoneNetworkEvent extends PhoneEvent {
     }
   }
 }
+
+registerEvent('phone-network',PhoneNetworkEvent);
