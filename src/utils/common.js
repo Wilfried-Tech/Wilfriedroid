@@ -24,3 +24,13 @@ export function merge(a, ...b) {
   }
   return a;
 }
+
+/**
+ * convert string to CamelCase
+ * @param {String} str
+ * @returns {String}
+ */
+ export function toCamelCase(str){
+   return str.split(/-| |\n|\r|_/).map(s => s[0].toUpperCase()+s.substring(1).toLowerCase()).join('');
+ }
+

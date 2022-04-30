@@ -38,7 +38,7 @@ class Android {
   }
 
   setContentView(view) {
-    //this.Views.screen.node.appendChild(view.node);
+    this.Views.screen.node.appendChild(view.node);
     //alert(view.node.outerHTML)
   }
 }

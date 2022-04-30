@@ -1,4 +1,5 @@
-import {View} from '@src/view'
+import { View } from '@src/view'
+import { toCamelCase,typeOf } from '@src/utils'
 
 export class Components {
   constructor(context, name, view) {

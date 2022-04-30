@@ -5,7 +5,8 @@ import content from './layout.html'
 console.log(content);
 export class OffScreen extends Interface {
   constructor(context) {
-    super(context, 'OffScreen', context.Views.screenOff, { showStatusBar: false });
+    super(context, 'OffScreen', context.Views.screenOff, { showStatusBar: !false });
+    this.View.on('phone-battery',onBattery.bind(this));
   }
 
   boot() {
@@ -27,4 +28,8 @@ export class OffScreen extends Interface {
       this.context.power = 'booting';
     }
   }
+}
+
+function onBattery(ev) {
+  console.log(ev);
 }
