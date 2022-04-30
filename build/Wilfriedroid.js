@@ -63,8 +63,8 @@ var Android = /*#__PURE__*/function () {
     }
   }, {
     key: "setContentView",
-    value: function setContentView(view) {//this.Views.screen.node.appendChild(view.node);
-      //alert(view.node.outerHTML)
+    value: function setContentView(view) {
+      this.Views.screen.node.appendChild(view.node); //alert(view.node.outerHTML)
     }
   }]);
 
@@ -166,17 +166,23 @@ var OffScreen = /*#__PURE__*/function (_Interface) {
   var _super = _createSuper(OffScreen);
 
   function OffScreen(context) {
+    var _this2;
+
     _classCallCheck(this, OffScreen);
 
-    return _super.call(this, context, 'OffScreen', context.Views.screenOff, {
-      showStatusBar: false
+    _this2 = _super.call(this, context, 'OffScreen', context.Views.screenOff, {
+      showStatusBar: !false
     });
+
+    _this2.View.on('phone-battery', onBattery.bind(_assertThisInitialized(_this2)));
+
+    return _this2;
   }
 
   _createClass(OffScreen, [{
     key: "boot",
     value: function boot() {
-      var _this2 = this;
+      var _this3 = this;
 
       if (this.context.power == 'off') {
         this.View.css('background', 'var(--window-boot-logo)').css('display', 'block');
@@ -184,7 +190,7 @@ var OffScreen = /*#__PURE__*/function (_Interface) {
         var _this = this;
 
         setTimeout(function () {
-          _this2.View.css('background', 'var(--window-booting)'); // _this.displayInterface('window').then(() => {
+          _this3.View.css('background', 'var(--window-booting)'); // _this.displayInterface('window').then(() => {
           //phone.screen.off.css('display', 'block');
           //});
 
@@ -202,6 +208,10 @@ var OffScreen = /*#__PURE__*/function (_Interface) {
 
   return OffScreen;
 }(_src_interfaces__WEBPACK_IMPORTED_MODULE_0__.Interface);
+
+function onBattery(ev) {
+  console.log(ev);
+}
 
 /***/ }),
 
@@ -941,11 +951,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Components": () => (/* binding */ Components)
 /* harmony export */ });
 /* harmony import */ var _src_view__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/view */ "./src/view/index.js");
+/* harmony import */ var _src_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/utils */ "./src/utils/index.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
 
 
 var Components = /*#__PURE__*/function () {
@@ -1152,7 +1164,8 @@ var Interface = /*#__PURE__*/function (_Components) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "typeOf": () => (/* binding */ typeOf),
-/* harmony export */   "merge": () => (/* binding */ merge)
+/* harmony export */   "merge": () => (/* binding */ merge),
+/* harmony export */   "toCamelCase": () => (/* binding */ toCamelCase)
 /* harmony export */ });
 /**
  * give the type of an variable
@@ -1186,6 +1199,17 @@ function merge(a) {
 
   return a;
 }
+/**
+ * convert string to CamelCase
+ * @param {String} str
+ * @returns {String}
+ */
+
+function toCamelCase(str) {
+  return str.split(/-| |\n|\r|_/).map(function (s) {
+    return s[0].toUpperCase() + s.substring(1).toLowerCase();
+  }).join('');
+}
 
 /***/ }),
 
@@ -1200,6 +1224,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "getView": () => (/* reexport safe */ _selector_js__WEBPACK_IMPORTED_MODULE_0__.getView),
 /* harmony export */   "getViewGroup": () => (/* reexport safe */ _selector_js__WEBPACK_IMPORTED_MODULE_0__.getViewGroup),
 /* harmony export */   "merge": () => (/* reexport safe */ _common_js__WEBPACK_IMPORTED_MODULE_1__.merge),
+/* harmony export */   "toCamelCase": () => (/* reexport safe */ _common_js__WEBPACK_IMPORTED_MODULE_1__.toCamelCase),
 /* harmony export */   "typeOf": () => (/* reexport safe */ _common_js__WEBPACK_IMPORTED_MODULE_1__.typeOf)
 /* harmony export */ });
 /* harmony import */ var _selector_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./selector.js */ "./src/utils/selector.js");
