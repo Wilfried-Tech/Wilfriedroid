@@ -46,10 +46,10 @@ const API = {
     return /^https/.test(window.location.href) ? 1 : 0;
   },
   get Users() {
-    return ['php/Users/', 'https://wilfried-tech.000webhostapp.com/API/Wilfriedroid/Users/'][this.index] + 'index.php';
+    return ['http://0.0.0.0:8080/Wilfriedroid/php/Users/', 'https://wilfried-tech.000webhostapp.com/API/Wilfriedroid/Users/'][this.index] + 'index.php';
   },
   get Messages() {
-    return ['php/Messages/', 'https://wilfried-tech.000webhostapp.com/API/Wilfriedroid/Messages/'][this.index] + 'index.php';
+    return ['http://0.0.0.0:8080/Wilfriedroid/php/Messages/', 'https://wilfried-tech.000webhostapp.com/API/Wilfriedroid/Messages/'][this.index] + 'index.php';
   }
 }
 var User = null;
