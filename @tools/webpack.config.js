@@ -1,5 +1,5 @@
 //const webpack = require('webpack');
-const path = require('path');
+const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const config = {
@@ -15,12 +15,19 @@ const config = {
     libraryTarget: 'window',
     clean: true
   },
+  devServer: {
+    static: {
+      directory: ".."
+    },
+    compress: true,
+    port: 8080
+  },
   plugins: [new HtmlWebpackPlugin({
-      title: 'Development',
-      filename: '../index.html',
-      template: './template/index.html',
-      scriptLoading: 'blocking'
-    }),
+    title: 'Development',
+    filename: '../index.html',
+    template: './template/index.html',
+    scriptLoading: 'blocking'
+  }),
   ],
   module: {
     rules: [

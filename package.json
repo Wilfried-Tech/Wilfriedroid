@@ -1,5 +1,5 @@
 {
-  "name": "Wilfriedroid",
+  "name": "wilfriedroid",
   "version": "1.0.0",
   "description": "I am trying to set up an virtual android phone",
   "main": "src/index.js",
@@ -8,7 +8,8 @@
     "test": "echo 'nothing'",
     "build": "webpack --config @tools/webpack.config.js",
     "watch": "webpack --watch --config @tools/webpack.config.js",
-    "lint": "eslint  --config @tools/eslintrc.js"
+    "serve": "webpack serve --config @tools/webpack.config.js",
+    "lint": "eslint --config @tools/eslintrc.js"
   },
   "repository": {
     "type": "git",
@@ -25,5 +26,13 @@
   "bugs": {
     "url": "https://github.com/Wilfried-Tech/Wilfriedroid/issues"
   },
-  "homepage": "https://github.com/Wilfried-Tech/Wilfriedroid#readme"
+  "homepage": "https://github.com/Wilfried-Tech/Wilfriedroid#readme",
+  "devDependencies": {
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4",
+    "babel-loader": "8.2.3",
+    "@babel/core": "7.16.5",
+    "@babel/preset-env": "7.16.5"
+  }
 }
