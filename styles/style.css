@@ -146,8 +146,8 @@ body {
   width: 75px;
   height: 7px;
   border-radius: 20px;
-  background-image: repeating-linear-gradient(45deg, #000, #000 1px, #0000 1px, #0000 2px),
-    repeating-linear-gradient(-45deg, #000, #000 1px, #0000 1px, #0000 2px);
+  background-image: repeating-linear-gradient(45deg, #000, #000 2px, #0000 2px, #0000 4px),
+  repeating-linear-gradient(-45deg, #000, #000 2px, #0000 2px, #0000 4px);
   background-color: white;
 }
 
